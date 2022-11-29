@@ -5,7 +5,7 @@ import ProductCard from './ProductCard';
 
 const AllProducts = () => {
     const allproducts=useLoaderData()
-    const [booking,setbooking]=useState([])
+    const [booking,setbooking]=useState(null)
     
     return (
             <section>
@@ -18,9 +18,12 @@ const AllProducts = () => {
                 ></ProductCard>)
             }
           </div>
-          <BookingModal
-           booking={booking}
-          ></BookingModal>
+         {booking &&
+             <BookingModal
+             booking={booking}
+             setbooking={setbooking}
+            ></BookingModal>
+         }
          </section>
           
       
