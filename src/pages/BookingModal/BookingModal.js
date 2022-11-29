@@ -15,8 +15,6 @@ const BookingModal = ({booking,setbooking}) => {
         const bookinginfo={
             name,
             email
-
-
         }
 
         fetch('http://localhost:5000/bookings',{
@@ -29,7 +27,6 @@ const BookingModal = ({booking,setbooking}) => {
         .then(res=>res.json())
         .then(data=>{
             console.log(data)
-            
             if(data.acknowledged){
                 setbooking(null)
                 toast.success('Booking confirmed')
