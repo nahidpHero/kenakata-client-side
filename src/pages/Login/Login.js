@@ -3,6 +3,7 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../provaider/AuthProvaider';
 import useTittle from '../../useTittle';
+import toast from 'react-hot-toast';
 
 
 
@@ -27,6 +28,7 @@ const Login = () => {
     .then(result=>{
       const user=result.user
       console.log(user)
+      toast('Login successfully')
       navigate(from ,{replace:true})
     })
     .catch(error=>console.log(error))
@@ -38,6 +40,7 @@ const Login = () => {
     .then(result=>{
       const user=result.user
       console.log(user)
+      toast('Login successfully')
       navigate('/')
     })
     .catch(error=>console.error(error))

@@ -1,25 +1,42 @@
 import React, { useContext } from 'react';
-import { Link } from 'react-router-dom';
+import toast from 'react-hot-toast';
+import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provaider/AuthProvaider';
 import useTittle from '../../useTittle';
 
 const Signup = () => {
-    const {createAccount}=useContext(AuthContext);
+    const {createAccount,updateUser}=useContext(AuthContext);
     useTittle('Signup')
+    const navigate=useNavigate()
 
     const handleSubmitSignup=(event)=>{
         event.preventDefault();
         const form=event.target;
+        const name=form.name.value
         const email=form.email.value;
         const password=form.password.value;
-        console.log(email,password)
+        
         createAccount(email,password)
         .then(result=>{
           const user=result.user;
           console.log(user)
+          toast('User Created Successfully')
           form.reset()
+          const userInfo={
+            displayName:name
+           
+          }
+          console.log(userInfo)
+  
+          updateUser(userInfo)
+          .then(()=>{})
+          .catch(error=>console.log(error))
+  
+          
         })
         .catch(error=>console.error(error))
+        
+       
       }
   
 
@@ -35,24 +52,21 @@ const Signup = () => {
               <div className="form-control">
               <h1 className="text-5xl font-bold text-center">Sign Up!</h1>
                 <label className="label">
-                  <span className="font-bold label-text">Email</span>
+                  <span className="font-bold label-text">Name</span>
                 </label>
-                <input type="text" name='email' placeholder="email" className="input input-bordered" />
+                <input type="text" name='name' placeholder="Name" className="input input-bordered" />
+              </div>
+              <div className="form-control">
+                <label className="label">
+                  <span className="label-text">Email</span>
+                </label>
+                <input type="email" name='email' placeholder="Email" className="input input-bordered" />
               </div>
               <div className="form-control">
                 <label className="label">
                   <span className="label-text">Password</span>
                 </label>
                 <input type="password" name='password' placeholder="password" className="input input-bordered" />
-                <label className="label">
-                  <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
-                </label>
-              </div>
-              <div className="form-control">
-                <label className="label">
-                  <span className="label-text">Confurm Password</span>
-                </label>
-                <input type="password" name='confurm-password' placeholder="password" className="input input-bordered" />
                 <label className="label">
                   <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
                 </label>
