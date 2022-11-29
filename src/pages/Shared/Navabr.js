@@ -1,14 +1,39 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
+import { AuthContext } from '../../provaider/AuthProvaider';
 
 const Navabr = () => {
+    const {logOut,user}=useContext(AuthContext)
+
+    const handleLogout=()=>{
+        logOut()
+        .then(result=>{
+            //sign out successfully
+          })
+          .catch(error=>{
+            //some problem
+          })
+         
+    }
+
     const menuItems = <React.Fragment>
     <li><Link to="/">Home</Link></li>
     <li><Link to="/appointment">Appointment</Link></li>
     <li><Link to="/about">About</Link></li>
     <li><Link to="/reviews">Reviews</Link></li>
-    <li><Link to="/login">Login</Link></li>
-</React.Fragment>
+    {
+        user?.email?
+        <>
+          <li><button onClick={handleLogout}>LogOut</button></li>
+        </>
+        :
+        <>
+          <li><Link to="/login">Login</Link></li>
+        </>
+    }
+  
+   
+ </React.Fragment>
     
     return (
         <div className="flex justify-between navbar bg-base-100">

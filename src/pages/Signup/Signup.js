@@ -1,9 +1,11 @@
 import React, { useContext } from 'react';
 import { Link } from 'react-router-dom';
 import { AuthContext } from '../../provaider/AuthProvaider';
+import useTittle from '../../useTittle';
 
 const Signup = () => {
     const {createAccount}=useContext(AuthContext);
+    useTittle('Signup')
 
     const handleSubmitSignup=(event)=>{
         event.preventDefault();
@@ -33,7 +35,7 @@ const Signup = () => {
               <div className="form-control">
               <h1 className="text-5xl font-bold text-center">Sign Up!</h1>
                 <label className="label">
-                  <span className="label-text">Email</span>
+                  <span className="font-bold label-text">Email</span>
                 </label>
                 <input type="text" name='email' placeholder="email" className="input input-bordered" />
               </div>
