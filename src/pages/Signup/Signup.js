@@ -21,6 +21,7 @@ const Signup = () => {
           const user=result.user;
           console.log(user)
           toast('User Created Successfully')
+          saveUser(name,email)
           form.reset()
           const userInfo={
             displayName:name
@@ -36,7 +37,34 @@ const Signup = () => {
         })
         .catch(error=>console.error(error))
         
+        const saveUser=(name,email)=>{
+          const user={name,email};
+          fetch('http://localhost:5000/users',{
+            method:'POST',
+            headers:{
+              'content-type':'application/json'
+            },
+            body:JSON.stringify(user)
+          })
+          .then(res=>res.json())
+          .then(data=>{
+            console.log(data)
+            getUserToken(email)
+            
+          })
+        }
        
+      }
+
+      const getUserToken=email=>{
+        fetch(`http://localhost:5000/jwt?email=${email}`)
+        .then(res=>res.json())
+        .then(data=>{
+          if(data.accessToken){
+            localStorage.setItem('accessToken',data.accessToken)
+            navigate('/')
+          }
+        })
       }
   
 

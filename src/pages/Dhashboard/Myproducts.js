@@ -3,20 +3,27 @@ import { AuthContext } from '../../provaider/AuthProvaider';
 
 
 const Myproducts = () => {
-    const {user}=useContext(AuthContext);
+    const {user,logOut}=useContext(AuthContext);
     const [bookingItems,setBookingItem]=useState([])
-
-    const url=`http://localhost:5000/bookings?email=${user?.email}`;
    
 
    useEffect(()=>{
-       fetch(url)
-       .then(res=>res.json())
+       fetch(`http://localhost:5000/bookings?email=${user?.email}`,{
+        headers:{
+          authorization:`bearer ${localStorage.getItem('genius-token')}`
+        }
+       })
+       .then(res=>{
+        if(res.status===401 || res.status===403){
+           logOut()
+        }
+        return res.json()
+       })
        .then(data=>{
         console.log(data)
         setBookingItem(data)
        })
-   },[])
+   },[user?.email])
    
 
     return (
