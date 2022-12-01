@@ -4,6 +4,7 @@ import { FaGoogle } from 'react-icons/fa';
 import { AuthContext } from '../../provaider/AuthProvaider';
 import useTittle from '../../useTittle';
 import toast from 'react-hot-toast';
+import img from '../../assets/images/login.jpg'
 
 
 
@@ -86,7 +87,7 @@ const Login = () => {
       <div className="w-full my-20 hero">
     <div className="grid flex-col gap-20 hero-content md:grid-cols-2 lg:flex-row">
       <div className="text-center lg:text-left">
-      {/* <img src=""></img> */}
+      <img src={img}></img>
       </div>
       <div className="w-full max-w-sm shadow-2xl card bg-base-100">
         <form onSubmit={handleSubmit} className="card-body">

@@ -18,7 +18,6 @@ const Navabr = () => {
 
     const menuItems = <React.Fragment>
     <li><Link to="/">Home</Link></li>
-    <li><Link to="/appointment">Appointment</Link></li>
     <li><Link to="/about">About</Link></li>
     
     {
@@ -33,6 +32,9 @@ const Navabr = () => {
           <li><Link to="/login">Login</Link></li>
         </>
     }
+     <li><Link to="/blog">Blog</Link></li>
+  
+   
   
    
  </React.Fragment>

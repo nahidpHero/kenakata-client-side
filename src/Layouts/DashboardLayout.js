@@ -7,7 +7,6 @@ import { AuthContext } from '../provaider/AuthProvaider';
 const DashboardLayout = () => {
   const {user}=useContext(AuthContext)
 
-  
     return (
         <div>
             <Navabr></Navabr>

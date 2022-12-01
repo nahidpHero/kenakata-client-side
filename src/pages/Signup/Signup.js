@@ -3,6 +3,7 @@ import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provaider/AuthProvaider';
 import useTittle from '../../useTittle';
+import img from '../../assets/images/signup.jpg'
 
 const Signup = () => {
     const {createAccount,updateUser}=useContext(AuthContext);
@@ -82,7 +83,7 @@ const Signup = () => {
         <div className="w-full my-20 hero">
         <div className="grid flex-col gap-20 hero-content md:grid-cols-2 lg:flex-row">
           <div className="text-center lg:text-left">
-          {/* <img src={signupImg}></img> */}
+          <img src={img}></img>
           </div>
           <div className="w-full max-w-sm shadow-2xl card bg-base-100">
             <form onSubmit={handleSubmitSignup} className="card-body">
