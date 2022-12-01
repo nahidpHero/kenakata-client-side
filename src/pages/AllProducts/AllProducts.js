@@ -9,7 +9,7 @@ const AllProducts = () => {
     
     return (
             <section>
-                 <div className='grid grid-cols-3'>
+                 <div className='grid mx-auto lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1'>
             {
                 allproducts.map(product=><ProductCard
                 key={product._id}

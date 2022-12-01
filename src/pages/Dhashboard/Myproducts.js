@@ -37,7 +37,7 @@ const Myproducts = () => {
         <th></th>
         <th>Email</th>
         <th>Product Name</th>
-        <th>Booking Time</th>
+        <th>Number</th>
         <th>Location</th>
         <th></th>
       </tr>
@@ -47,8 +47,9 @@ const Myproducts = () => {
         bookingItems.map((booking,i)=> <tr key={booking._id}>
             <th>{i+1}</th>
             <td>{booking.email}</td>
-            <td>Quality Control Specialist</td>
-            <td>Blue</td>
+            <td>{booking.productName}</td>
+            <td>{booking.mnumber}</td>
+            <td>{booking.location}</td>
           </tr>)
       }
     </tbody>

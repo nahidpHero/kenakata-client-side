@@ -8,6 +8,7 @@ import Myproducts from "../../pages/Dhashboard/Myproducts";
 import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
 import Signup from "../../pages/Signup/Signup";
+import AdminRoutes from "../AdminRoutes/AdminRoutes";
 import PrivateRoute from "../PrivateRoute/PrivateRoute";
 
 

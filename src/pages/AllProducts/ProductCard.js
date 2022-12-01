@@ -1,15 +1,23 @@
 import React from 'react';
 
 const ProductCard = ({product,setbooking}) => {
-    const {name,img}=product
+    const {name,img,location,marketPrice,price,selarName,post,mobile,useOfyear}=product
     return (
-        <div className="card card-compact w-96 bg-base-100 shadow-xl">
+        <div className="mb-10 shadow-xl card card-compact w-96 bg-base-100">
+        <div className='w-72 '>
         <figure><img src={img} alt="Shoes" /></figure>
-        <div className="card-body">
-          <h2 className="card-title">{name}</h2>
-          <p>If a dog chews shoes whose shoes does he choose?</p>
-          <div className="card-actions justify-end">
-            <label htmlFor="booking-modal" onClick={()=>setbooking(product)} className="btn btn-primary text-white">Buy now</label>
+        </div>
+        <div className="font-bold card-body">
+          <h2 className="card-title">Name:{name}</h2>
+          <p>Location:{location}</p>
+          <p>Original Price:{marketPrice}</p>
+          <p>Resale Price:{price}</p>
+          <p>Use of Years:{useOfyear}</p>
+          <p>Sellar Name:{selarName}</p>
+          <p>Sellar Number:{mobile}</p>
+          <p>Post:{post}</p>
+          <div className="justify-end card-actions">
+            <label htmlFor="booking-modal" onClick={()=>setbooking(product)} className="text-white btn btn-primary">BOOKING</label>
           </div>
         </div>
         </div>

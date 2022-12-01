@@ -47,10 +47,6 @@ const Login = () => {
         navigate(from ,{replace:true})
       })
 
-
-
-
-      
     })
     .catch(error=>console.log(error))
     
@@ -63,6 +59,24 @@ const Login = () => {
       console.log(user)
       toast('Login successfully')
       navigate('/')
+      const user2={
+        name:user.displayName,
+        email:user.email,
+        role:"seler"
+      }
+
+      fetch('http://localhost:5000/users',{
+        method:'POST',
+        headers:{
+          'content-type':'application/json'
+        },
+        body:JSON.stringify(user2)
+      })
+      .then(res=>res.json())
+      .then(data=>{
+        console.log(data)
+      })
+    
     })
     .catch(error=>console.error(error))
    

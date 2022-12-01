@@ -1,4 +1,4 @@
-import React, { useContext } from 'react';
+import React, { useContext} from 'react';
 import toast from 'react-hot-toast';
 import { Link, useNavigate } from 'react-router-dom';
 import { AuthContext } from '../../provaider/AuthProvaider';
@@ -8,6 +8,7 @@ const Signup = () => {
     const {createAccount,updateUser}=useContext(AuthContext);
     useTittle('Signup')
     const navigate=useNavigate()
+   
 
     const handleSubmitSignup=(event)=>{
         event.preventDefault();
@@ -15,19 +16,21 @@ const Signup = () => {
         const name=form.name.value
         const email=form.email.value;
         const password=form.password.value;
+        const options=event.target.radio.value;
+      
         
         createAccount(email,password)
         .then(result=>{
           const user=result.user;
           console.log(user)
           toast('User Created Successfully')
-          saveUser(name,email)
+          saveUser(name,email,options)
           form.reset()
           const userInfo={
             displayName:name
            
           }
-          console.log(userInfo)
+          
   
           updateUser(userInfo)
           .then(()=>{})
@@ -37,8 +40,14 @@ const Signup = () => {
         })
         .catch(error=>console.error(error))
         
-        const saveUser=(name,email)=>{
-          const user={name,email};
+        const saveUser=(name,email,options)=>{
+          const user={
+            name,
+            email,
+            role:options==='seler'?options:'buyer'
+          
+          };
+          console.log(user)
           fetch('http://localhost:5000/users',{
             method:'POST',
             headers:{
@@ -98,7 +107,12 @@ const Signup = () => {
                 <label className="label">
                   <Link href="#" className="label-text-alt link link-hover">Forgot password?</Link>
                 </label>
-              </div>
+                </div>
+                <div>
+                  <input type="radio" value="buyer"  name="radio" className="radio checked:bg-red-500"  />Create a Buyer Account
+                  <br></br>
+                  <input type="radio" value="seler" name="radio" className="radio checked:bg-blue-500" />Create a Seler Account
+                 </div>
               <div className="mt-6 form-control">
               <input className="btn btn-primary" type="submit" value="Sign Up" />
               </div>
