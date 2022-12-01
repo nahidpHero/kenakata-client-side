@@ -6,6 +6,7 @@ import Blog from "../../pages/Blog/Blog";
 import Allusers from "../../pages/Dhashboard/Allusers";
 import Dhashboard from "../../pages/Dhashboard/Dhashboard";
 import Myproducts from "../../pages/Dhashboard/Myproducts";
+import ErrorPage from "../../pages/ErrorPage/ErrorPage";
 import Home from "../../pages/Home/Home";
 import Login from "../../pages/Login/Login";
 import Signup from "../../pages/Signup/Signup";
@@ -17,6 +18,7 @@ export const router=createBrowserRouter([
     {
         path:'/',
         element:<Main></Main>,
+        errorElement:<ErrorPage></ErrorPage>,
         children:[
             {
                 path:'/',
