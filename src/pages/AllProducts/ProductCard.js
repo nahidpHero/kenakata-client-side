@@ -1,7 +1,7 @@
 import React from 'react';
 
 const ProductCard = ({product,setbooking}) => {
-    const {name,img,location,marketPrice,price,selarName,post,mobile,useOfyear}=product
+    const {name,img,location,marketPrice,price,selarName,post,mobile,useOfyear,condition}=product
     return (
         <div className="mb-10 shadow-xl card card-compact w-96 bg-base-100">
         <div className='w-72 '>
@@ -15,6 +15,7 @@ const ProductCard = ({product,setbooking}) => {
           <p>Use of Years:{useOfyear}</p>
           <p>Sellar Name:{selarName}</p>
           <p>Sellar Number:{mobile}</p>
+          <p>Condition type:{condition}</p>
           <p>Post:{post}</p>
           <div className="justify-end card-actions">
             <label htmlFor="booking-modal" onClick={()=>setbooking(product)} className="text-white btn btn-primary">BOOKING</label>
