@@ -18,7 +18,7 @@ const ProductCard = ({product,setbooking}) => {
           <p>Condition type:{condition}</p>
           <p>Post:{post}</p>
           <div className="justify-end card-actions">
-            <label htmlFor="booking-modal" onClick={()=>setbooking(product)} className="text-white btn btn-primary">BOOKING</label>
+          <label htmlFor="booking-modal" onClick={()=>setbooking(product)} className="text-white btn btn-primary">BOOKING</label>
           </div>
         </div>
         </div>

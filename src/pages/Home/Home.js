@@ -3,6 +3,7 @@ import useTittle from '../../useTittle';
 
 import Banner from './Banner/Banner';
 import Categories from './Categoris/Categories';
+import Info from './Info';
 
 
 const Home = () => {
@@ -11,6 +12,7 @@ const Home = () => {
         <div>
             <Banner></Banner>
             <Categories></Categories>
+            <Info></Info>   
         </div>
     );
 };
